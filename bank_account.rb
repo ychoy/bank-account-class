@@ -36,10 +36,24 @@ class BankAccount
   #use string interpolation 
  end 
 
+  def print_register
+   puts "#{name}'s Bank Account"
+   puts "-" * 40
+
+   puts "Description" + "Amount"
+   @transactions.each do |transaction|
+     puts transaction[:description] + sprintf("%0.2f", transaction[:amount])
+   end
+
+   puts "-" * 40
+   puts "Balance:"+ sprintf("%0.2f", balance)
+   puts "-" * 40
+  end 
 end 
 
-#########################################################################
 bank_account = BankAccount.new("Ophelia")
 bank_account.credit("Painting Sale", 500)
 bank_account.debit("Groceries", -20)
 puts bank_account
+puts "Register: "
+bank_account.print_register
