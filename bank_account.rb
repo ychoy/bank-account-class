@@ -40,13 +40,13 @@ class BankAccount
    puts "#{name}'s Bank Account"
    puts "-" * 40
 
-   puts "Description" + "Amount"
+   puts "Description".ljust(30) + "Amount".rjust(10)
    @transactions.each do |transaction|
-     puts transaction[:description] + sprintf("%0.2f", transaction[:amount])
+     puts transaction[:description].ljust(30) + sprintf("%0.2f", transaction[:amount]).rjust(10)
    end
 
    puts "-" * 40
-   puts "Balance:"+ sprintf("%0.2f", balance)
+   puts "Balance:".ljust(30) + sprintf("%0.2f", balance).rjust(10)
    puts "-" * 40
   end 
 end 
